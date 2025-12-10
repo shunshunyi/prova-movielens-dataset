@@ -5,7 +5,7 @@
 ```mermaid
 graph TD
     subgraph "External Source"
-        LocalDisk[Local Dataset (datasets folder)]
+        LocalDisk["Local Dataset (datasets folder)"]
     end
 
     subgraph "Ingestion Layer"
