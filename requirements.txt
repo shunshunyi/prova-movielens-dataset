@@ -1,0 +1,7 @@
+requests
+minio
+pandas
+matplotlib
+s3fs
+jupyter
+pyarrow
