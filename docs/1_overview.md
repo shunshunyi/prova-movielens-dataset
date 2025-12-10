@@ -32,7 +32,18 @@ A escolha de uma arquitetura baseada em **Containers** (Docker), **Object Storag
 *   Deployment em Nuvem Pública (AWS/Azure/GCP) - Foco em ambiente local simulado.
 *   API Rest para servir os dados (embora a arquitetura permita fácil acoplamento).
 
-## 1.4 Trabalho Individual
+## 1.4 Pontos de Falha e Limitações
+
+### Pontos de Falha (SPOF)
+*   **MinIO**: Se o container do MinIO cair, todo o pipeline de escrita e leitura falha. Em produção, seria necessário um cluster MinIO ou serviço gerenciado S3.
+*   **Spark Master**: Se o nó Master falhar, novos jobs não poderão ser agendados.
+*   **Ingestão Manual**: O script de ingestão é disparado manualmente. Falha humana em não executar o script resulta em dados desatualizados.
+
+### Limitações
+*   **Latência**: O processamento é em batch (D-1 ou sob demanda), não sendo adequado para análises em tempo real (streaming).
+*   **Volume de Dados**: A infraestrutura local (Docker Compose) é limitada pelos recursos da máquina host (RAM/CPU). Para Big Data real (Terabytes), seria necessário um cluster distribuído (AWS EMR / Databricks).
+
+## 1.5 Trabalho Individual
 
 Este projeto foi executado individualmente por **David Gilmour Souza**, que foi responsável por todas as etapas do desenvolvimento:
 
